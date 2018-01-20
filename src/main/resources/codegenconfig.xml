@@ -2,50 +2,14 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="codegen.xsd">
     <variables>
-        <variable name="developer" value="chenhaipeng"/>
-        <variable name="company" value=""/>
-        <variable name="platform" value="shany"/>
-        <variable name="hahaha" value="$"/>
+        <variable name="author" value="chenhaipeng"/>
     </variables>
     <templates>
-        <template id="dto" path="model.ftl"/>
+        <template id="entity" path="entity.ftl"/>
         <template id="service" path="service.ftl"/>
         <template id="serviceImpl" path="serviceImpl.ftl"/>
-        <template id="workerImpl" path="workerImpl.ftl"/>
-        <template id="dao" path="dao.ftl"/>
-        <template id="daoImpl" path="daoImpl.ftl"/>
-
-        <template id="vo" path="vo.ftl"/>
-        <template id="request" path="request.ftl"/>
-        <template id="response" path="response.ftl"/>
-        <template id="worker" path="worker.ftl"/>
-        <template id="workerManagerImpl" path="workerManagerImpl.ftl"/>
-        <template id="redisService" path="redisService.ftl"/>
-        <template id="redisServiceImpl" path="redisServiceImpl.ftl"/>
-
-        <template id="controller" path="controller.ftl"/>
-
-        <template id="list" path="list.jsp"/>
-        <template id="jsController" path="jsController.ftl"/>
-
-
-        <template id="empty_dto" path="empty/model.ftl"/>
-        <template id="empty_service" path="empty/service.ftl"/>
-        <template id="empty_serviceImpl" path="empty/serviceImpl.ftl"/>
-        <template id="empty_workerImpl" path="empty/workerImpl.ftl"/>
-        <template id="empty_dao" path="empty/dao.ftl"/>
-        <template id="empty_daoImpl" path="empty/daoImpl.ftl"/>
-
-        <template id="empty_vo" path="empty/vo.ftl"/>
-        <template id="empty_request" path="empty/request.ftl"/>
-        <template id="empty_response" path="empty/response.ftl"/>
-        <template id="empty_worker" path="empty/worker.ftl"/>
-        <template id="empty_workerManagerImpl" path="empty/workerManagerImpl.ftl"/>
-
-        <template id="empty_controller" path="empty/controller.ftl"/>
-
     </templates>
-    <!-- E:\software\_workplace\eclipse-new-manager -->
+
     <!-- ${tableName?xxx} 支持以下特性
     lower_hyphen          "test_data" => "test-data"
     lower_underscore      "test_data"=>"test_data"
@@ -57,122 +21,27 @@
     ${noPrefixTableName} "user"  table标签配置prefix :sys_
     ${tableDisplayName}  "User"  noPrefixTableName upper_camel的转换
     -->
-    <files baseDir="/Users/hai/IdeaProjects/proj_think_me/Adam/adam-codegen/target/">
-        <!--<file dir="/{t}{commonPath}/src/main/java/com/pp/commons/loan/api/{t}{platform}/{t}{package}/"-->
-              <!--refTemplate="worker" filename="{class}Worker.java" sub="true" override="true" />-->
-        <!--<file dir="/{t}{commonPath}/src/main/java/com/pp/commons/loan/response/{t}{platform}/{t}{package}/"-->
-              <!--refTemplate="response" filename="{class}Response.java" sub="true" override="true" />-->
-        <!--<file dir="/{t}{commonPath}/src/main/java/com/pp/commons/loan/request/{t}{platform}/{t}{package}/"-->
-              <!--refTemplate="request" filename="{class}Request.java" sub="true" override="true"/>-->
-        <!--<file dir="/{t}{commonPath}/src/main/java/com/pp/commons/loan/vo/{t}{platform}/{t}{package}/" refTemplate="vo"-->
-              <!--filename="{class}VO.java" sub="true" override="true"/>-->
+    <files baseDir="/Users/hai/IdeaProjects/proj_think_me/Adam">
 
-
-        <!--<file dir="/{t}{clientPath}/src/main/java/com/pp/loan/{t}{platform}/controller/{t}{package}/"-->
-              <!--refTemplate="controller" filename="{class}Controller.java" sub="true" override="true"/>-->
-        <!--<file dir="/{t}{clientPath}/src/main/java/com/pp/loan/{t}{platform}/worker/{t}{package}/"-->
-              <!--refTemplate="workerManagerImpl" filename="{class}WorkerImpl.java" sub="true" override="true" />-->
-
-
-        <file dir="/${workerPath}/src/main/java/com/pp/loan/dto/${package}/" refTemplate="dto"
-              filename="${tableDisplayName}.java" sub="true" override="true" append="true" insertTag="//insertHere"
+        <file dir="/${module}/src/main/java/com/thinkme/${package}/${subpackage}/entity/" refTemplate="entity"
+              filename="${tableDisplayName}.java" sub="true" override="true" append="false" insertTag="//insertHere"
               startTag="//startTag" endTag="//endTag"/>
-        <!--<file dir="/{t}{workerPath}/src/main/java/com/pp/loan/service/{t}{platform}/{t}{package}/" refTemplate="service"-->
-              <!--filename="{class}Service.java" sub="true" override="true"/>-->
-        <!--<file dir="/{t}{workerPath}/src/main/java/com/pp/loan/service/{t}{platform}/{t}{package}/impl/"-->
-              <!--refTemplate="serviceImpl" filename="{class}ServiceImpl.java" sub="true" override="true"/>-->
-        <!--<file dir="/{t}{workerPath}/src/main/java/com/pp/loan/worker/{t}{platform}/{t}{package}/"-->
-              <!--refTemplate="workerImpl" filename="{class}WorkerImpl.java" sub="true" override="true"/>-->
-        <!--<file dir="/{t}{workerPath}/src/main/java/com/pp/loan/dao/{t}{platform}/{t}{package}/" refTemplate="dao"-->
-              <!--filename="{class}Dao.java" sub="true" override="true"/>-->
-        <!--<file dir="/{t}{workerPath}/src/main/java/com/pp/loan/dao/{t}{platform}/{t}{package}/impl/"-->
-              <!--refTemplate="daoImpl" filename="{class}DaoImpl.java" sub="true" override="true"/>-->
 
-        <!--
-        <空壳>
-        <file dir="/{t}{commonPath}/src/main/java/com/pp/commons/loan/api/{t}{platform}/{t}{package}/" 			refTemplate="empty_worker" filename="{class}Worker.java"   sub="true" override="true"/>
-        <file dir="/{t}{commonPath}/src/main/java/com/pp/commons/loan/response/{t}{platform}/{t}{package}/"  	refTemplate="empty_response" filename="{class}Response.java"   sub="true" override="true"/>
-        <file dir="/{t}{commonPath}/src/main/java/com/pp/commons/loan/request/{t}{platform}/{t}{package}/"  	refTemplate="empty_request" filename="{class}Request.java"   sub="true" override="true"/>
-        <file dir="/{t}{commonPath}/src/main/java/com/pp/commons/loan/vo/{t}{platform}/{t}{package}/" 			refTemplate="empty_vo" filename="{class}VO.java"   sub="true" override="true"/>
+        <file dir="/${module}/src/main/java/com/thinkme/${package}/${subpackage}/service/" refTemplate="service"
+              filename="${tableDisplayName}Service.java" sub="true" override="true" append="false" insertTag="//insertHere"
+              startTag="//startTag" endTag="//endTag"/>
 
-
-        <file dir="/{t}{clientPath}/src/main/java/com/pp/loan/{t}{platform}/controller/{t}{package}/"		 	 refTemplate="empty_controller" filename="{class}Controller.java"  sub="true" override="true"/>
-        <file dir="/{t}{clientPath}/src/main/java/com/pp/loan/{t}{platform}/worker/{t}{package}/"    		 	 refTemplate="empty_workerManagerImpl" filename="{class}WorkerImpl.java"   sub="true" override="true"/>
-
-        <file dir="/{t}{workerPath}/src/main/java/com/pp/loan/dto/{t}{package}/" 								 refTemplate="empty_dto" filename="{class}.java"   sub="true" override="true"/>
-        <file dir="/{t}{workerPath}/src/main/java/com/pp/loan/service/{t}{platform}/{t}{package}/" 		    	 refTemplate="empty_service" filename="{class}Service.java"   sub="true" override="true"/>
-        <file dir="/{t}{workerPath}/src/main/java/com/pp/loan/service/{t}{platform}/{t}{package}/impl/"    	 	 refTemplate="empty_serviceImpl" filename="{class}ServiceImpl.java"   sub="true" override="true"/>
-        <file dir="/{t}{workerPath}/src/main/java/com/pp/loan/worker/{t}{platform}/{t}{package}/"         		 refTemplate="empty_workerImpl" filename="{class}WorkerImpl.java"   sub="true" override="true"/>
-        <file dir="/{t}{workerPath}/src/main/java/com/pp/loan/dao/{t}{platform}/{t}{package}/"             		 refTemplate="empty_dao" filename="{class}Dao.java"   sub="true" override="true"/>
-        <file dir="/{t}{workerPath}/src/main/java/com/pp/loan/dao/{t}{platform}/{t}{package}/impl/"        		 refTemplate="empty_daoImpl" filename="{class}DaoImpl.java"   sub="true" override="true"/>
-        <空壳>
-
-        <常用 修改数据库表字段>
-        <file dir="/{t}{clientPath}/src/main/webapp/WEB-INF/views/{t}{package}/"				   				 refTemplate="list" filename="{classVar}List.jsp"   sub="true" override="true"/>
-        <file dir="/{t}{workerPath}/src/main/java/com/pp/loan/dto/{t}{package}/" 								 refTemplate="dto" filename="{class}.java"   sub="true" override="true"/>
-        <file dir="/{t}{workerPath}/src/main/java/com/pp/loan/dao/{t}{platform}/{t}{package}/impl/"        		 refTemplate="daoImpl" filename="{class}DaoImpl.java"   sub="true" override="true"/>
-        <file dir="/{t}{commonPath}/src/main/java/com/pp/commons/loan/vo/{t}{platform}/{t}{package}/" 			 refTemplate="vo" filename="{class}VO.java"   sub="true" override="true"/>
-        <常用>
-
-        <CRUD>
-        <file dir="/{t}{commonPath}/src/main/java/com/pp/commons/loan/api/{t}{platform}/{t}{package}/" 			 refTemplate="worker" filename="{class}Worker.java"   sub="true" override="true"/>
-        <file dir="/{t}{commonPath}/src/main/java/com/pp/commons/loan/response/{t}{platform}/{t}{package}/" 	 refTemplate="response" filename="{class}Response.java"   sub="true" override="true"/>
-        <file dir="/{t}{commonPath}/src/main/java/com/pp/commons/loan/request/{t}{platform}/{t}{package}/"  	 refTemplate="request" filename="{class}Request.java"   sub="true" override="true"/>
-        <file dir="/{t}{commonPath}/src/main/java/com/pp/commons/loan/vo/{t}{platform}/{t}{package}/" 			 refTemplate="vo" filename="{class}VO.java"   sub="true" override="true"/>
-        <file dir="/{t}{commonPath}/src/main/java/com/pp/commons/loan/redisservice/{t}{package}/" 		 refTemplate="redisService" filename="{class}RedisService.java"   sub="true" override="true"/>
-        <file dir="/{t}{commonPath}/src/main/java/com/pp/commons/loan/redisservice/{t}{package}/impl" 	 refTemplate="redisServiceImpl" filename="{class}RedisServiceImpl.java"   sub="true" override="true"/>
-
-
-        <file dir="/{t}{clientPath}/src/main/webapp/WEB-INF/views/{t}{package}/"				   				 refTemplate="list" filename="{classVar}List.jsp"   sub="true" override="true"/>
-        <file dir="/{t}{clientPath}/src/main/webapp/static/js/angular/controller/{t}{package}"   				 refTemplate="jsController" filename="{classVar}Controller.js" sub="true" override="true"/>
-        <file dir="/{t}{clientPath}/src/main/java/com/pp/loan/{t}{platform}/controller/{t}{package}/" 			 refTemplate="controller" filename="{class}Controller.java"  sub="true" override="true"/>
-        <file dir="/{t}{clientPath}/src/main/java/com/pp/loan/{t}{platform}/worker/{t}{package}/"    			 refTemplate="workerManagerImpl" filename="{class}WorkerImpl.java"   sub="true" override="true"/>
-
-
-        <file dir="/{t}{workerPath}/src/main/java/com/pp/loan/dto/{t}{package}/" 								 refTemplate="dto" filename="{class}.java"   sub="true" override="true"/>
-        <file dir="/{t}{workerPath}/src/main/java/com/pp/loan/service/{t}{platform}/{t}{package}/" 		    	 refTemplate="service" filename="{class}Service.java"   sub="true" override="true"/>
-        <file dir="/{t}{workerPath}/src/main/java/com/pp/loan/service/{t}{platform}/{t}{package}/impl/"    		 refTemplate="serviceImpl" filename="{class}ServiceImpl.java"   sub="true" override="true"/>
-        <file dir="/{t}{workerPath}/src/main/java/com/pp/loan/worker/{t}{platform}/{t}{package}/"         		 refTemplate="workerImpl" filename="{class}WorkerImpl.java"   sub="true" override="true"/>
-        <file dir="/{t}{workerPath}/src/main/java/com/pp/loan/dao/{t}{platform}/{t}{package}/"            		 refTemplate="dao" filename="{class}Dao.java"   sub="true" override="true"/>
-        <file dir="/{t}{workerPath}/src/main/java/com/pp/loan/dao/{t}{platform}/{t}{package}/impl/"        		 refTemplate="daoImpl" filename="{class}DaoImpl.java"   sub="true" override="true"/>
-        <CRUD>
-
-         -->
+        <file dir="/${module}/src/main/java/com/thinkme/${package}/${subpackage}/service/impl/" refTemplate="serviceImpl"
+              filename="${tableDisplayName}ServiceImpl.java" sub="true" override="true" append="false" insertTag="//insertHere"
+              startTag="//startTag" endTag="//endTag"/>
 
     </files>
 
-    <!--
-     <table tableName="T_USER_FIELD,T_USER_DATA_VALID" >
-        <variable name="class" value="TmUserField" />
-
-        <variable name="platform" value="manager" />
-        <variable name="package" value="tm" />
-
-        <variable name="commonPath" value="pp-loan-common" />
-        <variable name="clientPath" value="pp-loan-manager" />
-        <variable name="workerPath" value="pp-work" />
-    </table>
- -->
 
     <table tableNames="sys_user,sys_role,sys_job" prefix="tb_,tc_,sys_">
-        <variable name="class" value="User"/>
-        <variable name="platform" value="shany"/>
-        <variable name="package" value="repay"/>
-
-        <variable name="commonPath" value="pp-loan-common"/>
-        <variable name="clientPath" value="pp-loan-cash"/>
-        <variable name="workerPath" value="pp-loan-work"/>
-
-    </table>
-
-    <table tableNames="sys_auth,sys_group" prefix="tb_,tc_,sys_">
-        <variable name="class" value="User"/>
-        <variable name="platform" value="jd"/>
-        <variable name="package" value="app"/>
-
-        <variable name="commonPath" value="pp-loan-common"/>
-        <variable name="clientPath" value="pp-loan-cash"/>
-        <variable name="workerPath" value="pp-loan-work"/>
+        <variable name="module" value="manager-service"/>
+        <variable name="package" value="demo"/>
+        <variable name="subpackage" value="user"/>
 
     </table>
 
