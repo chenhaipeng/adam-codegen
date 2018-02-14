@@ -27,21 +27,21 @@
               filename="${tableDisplayName}.java" sub="true" override="true" append="false" insertTag="//insertHere"
               startTag="//startTag" endTag="//endTag"/>
 
-        <!--file dir="/${module}/src/main/java/com/thinkme/${package}/${subpackage}/service/" refTemplate="service"
+        <file dir="/${module}/src/main/java/com/thinkme/${package}/${subpackage}/service/" refTemplate="service"
               filename="${tableDisplayName}Service.java" sub="true" override="true" append="false" insertTag="//insertHere"
               startTag="//startTag" endTag="//endTag"/>
 
         <file dir="/${module}/src/main/java/com/thinkme/${package}/${subpackage}/service/impl/" refTemplate="serviceImpl"
               filename="${tableDisplayName}ServiceImpl.java" sub="true" override="true" append="false" insertTag="//insertHere"
-              startTag="//startTag" endTag="//endTag"/-->
+              startTag="//startTag" endTag="//endTag"/>
 
     </files>
 
 
-    <table tableNames="sys_auth" prefix="sys_">
+    <table tableNames="sys_resource" prefix="sys_">
         <variable name="module" value="manager-service"/>
         <variable name="package" value="sys"/>
-        <variable name="subpackage" value="user"/>
+        <variable name="subpackage" value="resource"/>
 
     </table>
 

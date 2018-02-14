@@ -27,7 +27,7 @@ public class Codegen {
             GenService genService = new GenService();
             genService.genTableByConfig(codegenConfigBean, "gen");
         } catch (Exception e) {
-//            throw new RuntimeException(e);
+            throw new RuntimeException(e);
         }
 
     }
